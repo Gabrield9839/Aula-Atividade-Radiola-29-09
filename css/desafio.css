@@ -1,0 +1,316 @@
+/* ===========================================================
+   MEU ROLÊ — DESAFIO
+   -----------------------------------------------------------
+   Aparência pronta. ZERO leiaute — nem uma propriedade de
+   flexbox neste arquivo.
+
+   Vocês escrevem o leiaute NO FIM deste arquivo, e só com
+   flexbox. Não se mexe no desafio.html.
+   =========================================================== */
+
+:root {
+  --fundo: #12151F;
+  --caixa: #1B2130;
+  --caixa2: #161B28;
+  --linha: #0B0D14;
+  --texto: #E6E9F0;
+  --apoio: #98A0B4;
+  --marca: #3FA9E8;
+  --destaque: #F2C53C;
+  --verde: #5CCB6E;
+  --borda: 3px solid var(--linha);
+  --sombra: 4px 4px 0 var(--linha);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 40px;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+.horas {
+  background: var(--caixa2);
+  border: var(--borda);
+  padding: 12px;
+  min-height: 130px;
+}
+
+.hora {
+  background: var(--caixa);
+  color: var(--texto);
+  border: var(--borda);
+  box-shadow: 3px 3px 0 var(--linha);
+  padding: 10px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  cursor: pointer;
+  margin: 0;
+}
+
+.hora.ligado {
+  background: var(--destaque);
+  color: #2A1E00;
+  font-weight: 700;
+}
+
+.hora:focus-visible {
+  outline: 3px solid var(--marca);
+  outline-offset: 3px;
+}
+
+.agora {
+  background: var(--caixa);
+  border: var(--borda);
+  box-shadow: var(--sombra);
+  padding: 14px;
+}
+
+.agora-capa {
+  border: var(--borda);
+  display: block;
+}
+
+.agora-tit {
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.agora-sub {
+  font-size: 13px;
+  color: var(--apoio);
+}
+
+.agora-selo {
+  background: var(--verde);
+  color: #0B2010;
+  border: var(--borda);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+.palco {
+  background: var(--caixa);
+  border: var(--borda);
+  box-shadow: var(--sombra);
+  padding: 14px;
+  margin: 0 0 14px;
+}
+
+.palco.destaque {
+  border-color: var(--destaque);
+}
+
+.palco-tit {
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.linha-up {
+  list-style: none;
+   margin: 0;
+  padding: 0;
+  color: var(--apoio);
+  font-size: 14px;
+}
+
+.linha-up li {
+  padding: 2px 0;
+}
+.palco-rod {
+  border-top: 2px solid #2A3145;
+  padding-top: 10px;
+  margin-top: 12px;
+}
+
+.bt-ir {
+  background: var(--marca);
+  color: #04283F;
+  border: var(--borda);
+  box-shadow: 3px 3px 0 var(--linha);
+  padding: 9px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.bt-ir:focus-visible {
+  outline: 3px solid var(--destaque);
+
+  outline-offset: 3px;
+}
+
+/* ===========================================================
+   LAYOUT — SOMENTE FLEXBOX
+   =========================================================== */
+
+/* Cabeçalho */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 5%;
+  background: var(--caixa);
+  border-bottom: var(--borda);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.marca-nome {
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.menu a {
+  color: var(--texto);
+  text-decoration: none;
+}
+
+/* Conteúdo principal */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 24px auto 0;
+  padding: 0 20px;
+}
+
+.secao {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 22px;
+}
+
+/* Faixa de horários */
+.horas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Cartão do próximo show */
+.agora {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.agora-capa {
+  display: block;
+  flex-shrink: 0;
+}
+
+.agora-txt {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 220px;
+  min-width: 0;
+  gap: 6px;
+}
+
+.agora-tit {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.agora-sub {
+  overflow-wrap: anywhere;
+}
+
+.agora-selo {
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+/* Lista de palcos */
+.palcos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.palco {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.palco-tit {
+  overflow-wrap: anywhere;
+}
+
+.linha-up {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.palco-rod {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bt-ir {
+  max-width: 100%;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+  .topo {
+    padding: 14px 16px;
+  }
+
+  main {
+    padding: 0 14px;
+  }
+
+  .agora {
+    align-items: flex-start;
+  }
+
+  .agora-txt {
+    flex-basis: 100%;
+  }
+
+  .agora-selo {
+    margin-top: 4px;
+  }
+
+  .palco {
+    flex-basis: 100%;
+  }
+}
